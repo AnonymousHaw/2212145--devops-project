@@ -10,10 +10,8 @@ DATABASE_URL = os.getenv(
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-
 class Base(DeclarativeBase):
     pass
-
 
 # Export text() so main.py can use it for the health check
 __all__ = ["engine", "SessionLocal", "Base", "text"]
