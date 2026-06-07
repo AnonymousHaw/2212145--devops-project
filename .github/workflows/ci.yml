@@ -14,9 +14,9 @@ jobs:
       db:
         image: postgres:15
         env:
-          POSTGRES_USER:     iliyan
-          POSTGRES_PASSWORD: 2212145
-          POSTGRES_DB:       iliyan_db
+          POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
         ports:
           - 5432:5432
         options: >-
@@ -43,4 +43,4 @@ jobs:
       - name: Run pytest
         run: pytest app/tests/ -v
         env:
-          DATABASE_URL: postgresql://iliyan:2212145@localhost:5432/iliyan_db
+          DATABASE_URL: postgresql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@localhost:5432/${{ secrets.POSTGRES_DB }}
