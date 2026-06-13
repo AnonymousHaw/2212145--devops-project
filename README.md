@@ -90,6 +90,8 @@ pip install -r requirements.txt
 pytest app/tests/ -v
 ```
 
+
+recording test video 
 ---
 
 *DevOps Fundamentals — Instructor: Afaq Ahmed*
